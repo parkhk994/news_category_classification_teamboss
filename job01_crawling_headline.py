@@ -52,3 +52,7 @@ df_titles.info()
 print(df_titles['category'].value_counts())
 df_titles.to_csv('./crawling_data/naver_headline_news_{}.csv'.format(
     datetime.datetime.now().strftime('%Y%m%d')), index=False) # 나노second단위 받은 시간으로 오늘 날짜로 바꿔서 저장
+
+
+
+

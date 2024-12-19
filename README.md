@@ -7,6 +7,10 @@
 ## *폴더 구조* 
 proj
 - crawling_data
+  - csv파일
+- py파일
+- README파일
+- requirements.txt
 
 
 

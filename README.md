@@ -5,7 +5,7 @@
 **python 3.10**  
 ---
 ## *폴더 구조* 
-proj
+Project
 - crawling_data
   - csv파일
 - py파일

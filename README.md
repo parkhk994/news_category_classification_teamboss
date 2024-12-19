@@ -6,4 +6,4 @@ readme
 
 
 
-$ a\over b$
+$ a\times b$

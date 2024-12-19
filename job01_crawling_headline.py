@@ -34,7 +34,7 @@ category = ['Politics', 'Economic', 'Social', 'Culture', 'World', 'IT']
 df_titles = pd.DataFrame()
 
 #for i in range(6):
-for i in range(2,4): # 
+for i in range(4,6): # W ,I ('World', 'IT')
     url = 'https://news.naver.com/section/10{}'.format(i) # 100,101~106까지 가져오기
     resp = requests.get(url)  # 요청하면 웹서버에서 응답
     soup = BeautifulSoup(resp.text, 'html.parser')
@@ -51,9 +51,6 @@ for i in range(2,4): #
 print(df_titles.head())
 df_titles.info()
 print(df_titles['category'].value_counts())
-df_titles.to_csv('./crawling_data/naver_headline_news_{}.csv'.format(
+df_titles.to_csv('./crawling_data/naver_headline_news_4_5_{}.csv'.format(
     datetime.datetime.now().strftime('%Y%m%d')), index=False) # 나노second단위 받은 시간으로 오늘 날짜로 바꿔서 저장
-
-
-
 

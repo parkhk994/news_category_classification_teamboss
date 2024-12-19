@@ -24,7 +24,7 @@ category = ['Politics', 'Economic', 'Social', 'Culture', 'World', 'IT']
 
 
 df_titles = pd.DataFrame()
-for z in range(4,6):
+for z in range(1):
     url = 'https://news.naver.com/section/10{}'.format(z)
     driver.get(url)
     button_xpath = '//*[@id="newsct"]/div[4]/div/div[2]' #id가 newsct요소에 있는 div태그4번쨰-div-div2번
@@ -53,7 +53,7 @@ for z in range(4,6):
 print(df_titles.head())
 df_titles.info()
 print(df_titles['category'].value_counts())
-df_titles.to_csv('./crawling_data/naver_headline_news_4_5_{}.csv'.format(
+df_titles.to_csv('./crawling_data/naver_headline_news_1_{}.csv'.format(
     datetime.datetime.now().strftime('%Y%m%d')), index=False) # 나노second단위 받은 시간으로 오늘 날짜로 바꿔서 저장
 time.sleep(30)
 driver.close()

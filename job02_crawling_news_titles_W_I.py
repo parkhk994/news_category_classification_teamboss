@@ -23,8 +23,9 @@ driver = webdriver.Chrome(service=service, options=options)
 category = ['Politics', 'Economic', 'Social', 'Culture', 'World', 'IT']
 
 
-df_titles = pd.DataFrame()
+# df_titles = pd.DataFrame()
 for z in range(4,6):
+    df_titles = pd.DataFrame()
     url = 'https://news.naver.com/section/10{}'.format(z)
     driver.get(url)
     button_xpath = '//*[@id="newsct"]/div[4]/div/div[2]' #id가 newsct요소에 있는 div태그4번쨰-div-div2번
@@ -48,13 +49,12 @@ for z in range(4,6):
         df_section_titles = pd.DataFrame(titles, columns=['titles'])  # 데이터프레임 생성
         df_section_titles['category'] = category[z]  # 카테고리 라벨 붙이기
         df_titles = pd.concat([df_titles, df_section_titles], axis='rows', ignore_index=True)  # 빈 데이터프레임에 row정장
+    print(df_titles.head())
+    df_titles.info()
+    print(df_titles['category'].value_counts())
+    df_titles.to_csv('./crawling_data/naver_headline_news_{}_{}.csv'.format(z ,
+        datetime.datetime.now().strftime('%Y%m%d')), index=False) # 나노second단위 받은 시간으로 오늘 날짜로 바꿔서 저장
 
-
-print(df_titles.head())
-df_titles.info()
-print(df_titles['category'].value_counts())
-df_titles.to_csv('./crawling_data/naver_headline_news_4_5_{}.csv'.format(
-    datetime.datetime.now().strftime('%Y%m%d')), index=False) # 나노second단위 받은 시간으로 오늘 날짜로 바꿔서 저장
 time.sleep(30)
 driver.close()
 

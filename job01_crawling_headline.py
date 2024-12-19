@@ -1,4 +1,4 @@
-from operator import index
+
 from time import strftime
 
 from bs4 import BeautifulSoup
@@ -33,7 +33,8 @@ category = ['Politics', 'Economic', 'Social', 'Culture', 'World', 'IT']
 
 df_titles = pd.DataFrame()
 
-for i in range(6):
+#for i in range(6):
+for i in range(2,4): # 
     url = 'https://news.naver.com/section/10{}'.format(i) # 100,101~106까지 가져오기
     resp = requests.get(url)  # 요청하면 웹서버에서 응답
     soup = BeautifulSoup(resp.text, 'html.parser')
